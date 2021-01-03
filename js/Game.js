@@ -19,20 +19,39 @@ class Game {
   getRandomPhrase() {
     const randomNumber = Math.floor(Math.random() * this.phrases.length);
     const randomPhrase = this.phrases[randomNumber];
-    console.log(randomPhrase);
     return randomPhrase;
   }
 
-  handleInteraction(key) {
-    key.className = "disabled";
-    if (!this.activePhrase.checkLetter(key)) {
-      key.className = "wrong";
-      this.removeLife();
-    } else {
-      key.className = "chosen";
-      const letters = document.querySelectorAll(".letter");
-      this.activePhrase.showMatchedLetter(letters, key);
-      this.checkForWin();
+  handleInteraction(key, arg) {
+    if (arg === "screen") {
+      key.className = "disabled";
+      if (!this.activePhrase.checkLetter(key)) {
+        key.className = "wrong";
+        this.removeLife();
+      } else {
+        key.className = "chosen";
+        const letters = document.querySelectorAll(".letter");
+        this.activePhrase.showMatchedLetter(letters, key);
+        this.checkForWin();
+      }
+    } else if (arg === "physical") {
+      const keys = document.querySelectorAll(".key");
+      keys.forEach((x) => {
+        if (x.textContent === key) {
+          x.className = "disabled";
+          if (!this.activePhrase.checkLetter(key)) {
+            x.className = "wrong";
+
+            this.removeLife();
+          } else {
+            x.className = "chosen";
+
+            const letters = document.querySelectorAll(".letter");
+            this.activePhrase.showMatchedLetter(letters, key);
+            this.checkForWin();
+          }
+        }
+      });
     }
   }
 

@@ -23,14 +23,17 @@ class Phrase {
   }
 
   checkLetter(key) {
-    if (this.phrase.includes(key.textContent)) {
+    if (this.phrase.includes(key.textContent || key)) {
       return true;
     }
   }
 
   showMatchedLetter(phrase, key) {
     for (let i = 0; i < phrase.length; i++) {
-      if (phrase[i].textContent === key.textContent) {
+      if (
+        phrase[i].textContent === key.textContent ||
+        phrase[i].textContent === key
+      ) {
         phrase[i].classList.add("show");
         phrase[i].classList.remove("hide");
         phrase[i].setAttribute("show", "");

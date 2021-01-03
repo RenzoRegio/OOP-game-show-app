@@ -201,8 +201,8 @@ button {
 }
 
 .disabled {
-  cursor: not-allowed !important;
-  background: rgba(197, 163, 175, 0.1) !important;
+  cursor: not-allowed;
+  background: rgba(197, 163, 175, 0.1);
   pointer-events: none;
 }
 
