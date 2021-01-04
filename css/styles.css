@@ -46,6 +46,18 @@ h2 {
 
 h1 {
   font-size: 30px;
+  color: var(--color-neutral);
+  text-shadow: 0px 2px;
+}
+
+@keyframes btnAnimation {
+  from {
+    box-shadow: 0px 8px 2px;
+  }
+  to {
+    box-shadow: 0px 5px 2px 2px;
+    outline: none;
+  }
 }
 
 button {
@@ -60,6 +72,7 @@ button {
   -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  animation: btnAnimation 1s forwards;
 }
 
 #btn__reset {
@@ -86,9 +99,23 @@ button {
 }
 
 /* Title */
+@keyframes headerAnimation {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
 
 .header {
   color: #3a3f58;
+  animation: headerAnimation 2s ease-in-out forwards;
 }
 
 /* Phrase */
@@ -102,6 +129,7 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 .space {
@@ -110,7 +138,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: rgba(0, 0, 0, 0.644);
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -136,7 +164,7 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: var(--color-lose);
   color: #ffffff;
 }
 
@@ -173,11 +201,7 @@ button {
 }
 
 .title {
-  color: #fff;
-}
-
-.start {
-  background-color: #3a3f58;
+  color: #3a3f58;
 }
 
 .start a {
@@ -185,7 +209,9 @@ button {
 }
 
 .win {
-  background-color: var(--color-win);
+  background-image: linear-gradient(90deg, #b7f8db, #98ffe9);
+  background-size: 400% 400%;
+  animation: gradientEffect 10s ease-in-out infinite;
 }
 
 .win a {
@@ -193,7 +219,9 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-image: linear-gradient(45deg, #ffc3a0, #d94545, #ffafbd);
+  background-size: 400% 400%;
+  animation: gradientEffect 10s ease-in-out infinite;
 }
 
 .lose a {
@@ -217,4 +245,39 @@ button {
   margin: 0 auto;
   margin-top: 20px;
   display: none;
+}
+
+@keyframes heart {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.lastLife {
+  animation: heart 2s linear infinite;
+}
+
+body,
+.start {
+  background-image: linear-gradient(-45deg, #93a5cf, #e4efe9, #ffdde1);
+  background-size: 400% 400%;
+  animation: gradientEffect 10s ease-in-out infinite;
+}
+
+@keyframes gradientEffect {
+  0% {
+    background-position: 0% 25%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

@@ -1,7 +1,3 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Game.js */
-
 class Game {
   constructor(arr) {
     this.missed = 0;
@@ -31,6 +27,7 @@ class Game {
       } else {
         key.className = "chosen";
         const letters = document.querySelectorAll(".letter");
+        console.log(letters);
         this.activePhrase.showMatchedLetter(letters, key);
         this.checkForWin();
       }
@@ -61,6 +58,11 @@ class Game {
     );
     this.missed += 1;
     life.setAttribute("src", "images/lostHeart.png");
+    if (this.missed === 4) {
+      const lastLifeParent = life.parentNode;
+      lastLifeParent.nextElementSibling.firstElementChild.className =
+        "lastLife";
+    }
     if (this.missed > 4) {
       this.gameOver(`Try again!`);
     }
@@ -81,11 +83,19 @@ class Game {
     const overlay = document.querySelector("#overlay");
     overlay.style.display = "";
     document.querySelector("#game-over-message").textContent = message;
+    if (message === "Congratulations!") {
+      overlay.className = "win";
+    } else {
+      overlay.className = "lose";
+    }
     this.reset();
   }
 
   reset() {
     this.missed = 0;
+    const banner = document.querySelector("#banner");
+    const header = document.querySelector(".header");
+    banner.removeChild(header);
     const ul = document.querySelector("#phrase > ul");
     const li = document.querySelectorAll(".letter");
     const keys = document.querySelectorAll(".keyrow > button");
@@ -100,6 +110,7 @@ class Game {
     });
     lives.forEach((life) => {
       life.setAttribute("src", "images/liveHeart.png");
+      life.className = "";
     });
   }
 }
