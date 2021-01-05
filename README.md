@@ -22,4 +22,4 @@ Minor Style Changes:
 
 2. <h1> added a text-shadow style property and changed the color to a more darker shade.
 3. Changed the background color of the .show class to a more darker shade.
-4. Changed the color of the .title class to #3a3f58. Since the background colors are in a lighter shade, I decided to change the text-color of .title class to a darker color to be more visible.
+4. Changed the color of the .title class. Since the background colors are in a lighter shade, I decided to change the text-color of .title class to a darker color to be more visible.

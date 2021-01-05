@@ -46,7 +46,7 @@ h2 {
 
 h1 {
   font-size: 30px;
-  color: var(--color-neutral);
+  color: black;
   text-shadow: 0px 2px;
 }
 
@@ -201,7 +201,7 @@ button {
 }
 
 .title {
-  color: #3a3f58;
+  color: black;
 }
 
 .start a {
@@ -209,9 +209,9 @@ button {
 }
 
 .win {
-  background-image: linear-gradient(90deg, #b7f8db, #98ffe9);
-  background-size: 400% 400%;
-  animation: gradientEffect 10s ease-in-out infinite;
+  background-image: linear-gradient(-45deg, #80ff72, #7ee8fa);
+  background-size: 200% 200%;
+  animation: gradientEffect 5s ease-in-out infinite;
 }
 
 .win a {
@@ -219,9 +219,9 @@ button {
 }
 
 .lose {
-  background-image: linear-gradient(45deg, #ffc3a0, #d94545, #ffafbd);
-  background-size: 400% 400%;
-  animation: gradientEffect 10s ease-in-out infinite;
+  background-image: linear-gradient(45deg, #ff928b, #ffac81);
+  background-size: 200% 200%;
+  animation: gradientEffect 5s ease-in-out infinite;
 }
 
 .lose a {
@@ -265,14 +265,14 @@ button {
 
 body,
 .start {
-  background-image: linear-gradient(-45deg, #93a5cf, #e4efe9, #ffdde1);
+  background-image: linear-gradient(-45deg, #3f87a6, #ebf8e1, #f69d3c);
   background-size: 400% 400%;
   animation: gradientEffect 10s ease-in-out infinite;
 }
 
 @keyframes gradientEffect {
   0% {
-    background-position: 0% 25%;
+    background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;

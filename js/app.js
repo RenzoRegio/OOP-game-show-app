@@ -20,7 +20,7 @@ const game = new Game(phraseArray);
 
 btn.addEventListener("click", function () {
   game.startGame();
-  //Creates the header element of the game.
+  //Creates the h2 element of the game.
   const header = document.createElement("h2");
   const banner = document.querySelector("#banner");
   header.className = "header";
@@ -34,7 +34,7 @@ btn.addEventListener("click", function () {
 
 keys.forEach((key) => {
   key.addEventListener("click", (e) => {
-    game.handleInteraction(e.target, "screen");
+    game.handleInteraction(e.target, "onscreen");
   });
 });
 
