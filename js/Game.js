@@ -42,9 +42,10 @@ class Game {
 
     // Onscreen Keyboard
     if (arg === "onscreen") {
-      changeClass(key, "disabled");
       if (!phrase.checkLetter(key)) {
+        key.setAttribute("disabled", "");
         changeClass(key, "wrong");
+        key.classList.add("disabled");
         this.removeLife();
       } else {
         changeClass(key, "chosen");
@@ -58,7 +59,9 @@ class Game {
         if (letter.textContent === key) {
           changeClass(letter, "disabled");
           if (!phrase.checkLetter(key)) {
+            letter.setAttribute("disabled", "");
             changeClass(letter, "wrong");
+            letter.classList.add("disabled");
             this.removeLife();
           } else {
             changeClass(letter, "chosen");
@@ -67,6 +70,9 @@ class Game {
           }
         }
       });
+    }
+    if (this.checkForWin()) {
+      this.gameOver(`Congratulations! You got it!`);
     }
   }
 
@@ -92,7 +98,7 @@ class Game {
   }
 
   /**
-   * Checks to see if the player has revealed all the letters in the phrase and if all the letters are revealed then it will call the gameOver() method with a congratulatory message.
+   * Checks to see if the player has revealed all the letters in the phrase and if all the letters are revealed then it will return true.
    */
 
   checkForWin() {
@@ -102,7 +108,7 @@ class Game {
       arr.push(shown[i]);
     }
     if (arr.length === this.activePhrase.phrase.length) {
-      this.gameOver(`Congratulations! You got it!`);
+      return true;
     }
   }
 
@@ -150,6 +156,7 @@ class Game {
     const keys = document.querySelectorAll(".keyrow > button");
     keys.forEach((key) => {
       key.className = "key";
+      key.removeAttribute("disabled");
     });
 
     //Sets all the heart images that had a images/lostHeart.png to have images/liveHeart.png.

@@ -14,8 +14,6 @@ Major Style Changes:
 
 4. A "heartbeat" effect was added to the final heart image. If a user only has one try or life left for the game, the last heart img which shows (images/liveHeart.png) shows a heartbeat animation emphasizing that it is only the last try for the user. Common effect found in some games. This is called on the game object's removeLife() method by adding the .lastLife class name to the element.
 
-5. Changed the background color of the .wrong class to var(--color-lose). This represents a more clear indication that the selected key is wrong or is not part of the phrase.
-
 Minor Style Changes:
 
 1. Added a border around the list items containing the .letter class. This is to be able to provide more visibility for the user since the background image is light.
